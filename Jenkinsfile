@@ -8,7 +8,6 @@ pipeline {
         {
             steps{
                 script{
-                    sh "checkout scm"
                     sh "ls -ltr"
                 }
             }
