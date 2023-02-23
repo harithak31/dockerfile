@@ -8,8 +8,7 @@ pipeline {
         {
             steps{
                 script{
-                    git branch: 'main', credentialsId: 'githubid', url: 'https://github.com/harithak31/dockerfile.git'
-                    sh "git checkout test"
+                    sh "checkout scm"
                     sh "ls -ltr"
                 }
             }
