@@ -14,9 +14,9 @@ pipeline {
         }
         stage('bulid') {
             steps {
-                sh "docker build -t cent:1 ."
+                sh "docker build -t nginx:2 ."
                 sh "docker images"
-                sh "docker run -itd --name centos1 cent:1"
+                sh "docker run -itd --name ng nginx:2"
                 sh "docker ps"
             }
         }
