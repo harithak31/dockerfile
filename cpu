@@ -1,0 +1,25 @@
+pipeline {
+    agent {
+        label "test"
+    }
+
+    stages {
+        stage('gitcheckout')
+        {
+            steps{
+                script{
+                    git branch: 'main', credentialsId: 'githubid', url: 'https://github.com/harithak31/dockerfile.git'
+                    sh "git checkout rest"
+                }
+            }
+        }
+        stage('information') {
+            steps {
+                sh "ps"
+                sh "hostname -i"
+                sh "cat /proc/meminfo"
+                sh "cat /proc/cpuinfo"
+            }
+        }
+    }
+}
