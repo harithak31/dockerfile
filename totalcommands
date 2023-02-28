@@ -25,7 +25,6 @@ pipeline {
                 sh "env"
                 sh "uname -a"
                sh "cat /etc/os-release"
-               sh "ls -lrt|grep jenkinsfile"
                sh "ls -ltr|wc - l"
                sh "mkdir call"
                sh "mkdir  memory"
