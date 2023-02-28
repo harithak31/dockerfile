@@ -20,7 +20,6 @@ pipeline {
                 sh "pwd"
                 sh "date"
                 sh "ls -lrt"
-                sh "cat dockerfile"
                 sh "free"
                 sh "cal"
                 sh "env"
