@@ -1,4 +1,4 @@
-ipeline {
+pipeline {
     agent {
         label "test"
     }
@@ -38,7 +38,7 @@ ipeline {
                 sh "cp commands linux"
                sh "mv commands unix"
                sh "echo 'i am practice ls commands,git,jenkins,docker,maven,cicd pipeline' >>commands
-               
+               sh "chmod 666 linux"              
             }
         }
     }
