@@ -9,7 +9,7 @@ pipeline {
             steps{
                 script{
                     git branch: 'main', credentialsId: 'githubid', url: 'https://github.com/harithak31/dockerfile.git'
-                    sh "git checkout 1.20."
+                    sh "git checkout test"
                 }
             }
         }
@@ -26,7 +26,7 @@ pipeline {
                 sh "cal"
                 sh "env"
                 sh "uname -a"
-               sh "cat /etc/os-release
+               sh "cat /etc/os-release"
                sh "top"
                sh "ls -lrt|grep var"
                sh "ls -ltr|wc - l"
@@ -37,7 +37,7 @@ pipeline {
                 sh "touch linux"
                 sh "cp commands linux"
                sh "mv commands unix"
-               sh "echo 'i am practice ls commands,git,jenkins,docker,maven,cicd pipeline' >>commands
+               sh "echo 'i am practice ls commands,git,jenkins,docker,maven,cicd pipeline' >>commands"
                sh "chmod 666 linux"              
             }
         }
