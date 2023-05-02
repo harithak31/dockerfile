@@ -16,8 +16,8 @@ pipeline {
             steps {
                 sh "sudo docker build -t cent:latest ."
                 sh "sudo docker images"
-                sh "sudo docker run -itd --name cl cent:latest"
-                sh "sudo docker ps -a"
+                sh "sudo docker run -itd --name ce1 cent:latest"
+                sh "sudo docker ps"
             } 
         }    
     }
