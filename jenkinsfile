@@ -1,0 +1,25 @@
+pipeline {
+    agent 
+    {
+        label "test"
+    }
+
+    stages {
+        stage('git checkout') {
+            steps {
+               script {
+                 sh "ls -lrt"
+               }
+            }
+        }
+          stage('bulid') {
+            steps {
+                sh "sudo docker build -t cent:latest ."
+                sh "sudo docker images"
+                sh "sudo docker run -itd --name cl cent:latest"
+                sh "sudo docker ps -a"
+            } 
+        }    
+    }
+}
+
