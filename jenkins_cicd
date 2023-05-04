@@ -1,0 +1,50 @@
+setpipeline {
+  agent {
+    kubernetes {
+      yaml '''
+        apiVersion: v1
+        kind: Pod
+        spec:
+          containers:
+          - name: maven
+            image: maven:alpine
+            command:
+            - cat
+            tty: true
+          - name: docker
+            image: docker:latest
+            command:
+            - cat
+            tty: true
+            volumeMounts:
+             - mountPath: /var/run/docker.sock
+               name: docker-sock
+          volumes:
+          - name: docker-sock
+            hostPath:
+              path: /var/run/docker.sock
+        '''
+    }
+  }
+stages {
+        stage('git checkout') {
+            steps {
+               script {
+                   git branch: 'main', credentialsId: 'githubid', url: 'https://github.com/harithak31/dockerfile.git'
+                 sh "git checkout dev"
+                 sh "ls -lrt"
+               }
+            }
+        }
+          stage('bulid docker image') {
+            steps {
+                container('docker') {
+                sh "docker build -t cent:latest ."
+                sh "docker images"
+                sh "docker run -itd --name cna cent:latest"
+                sh "docker ps"
+            } 
+        }    
+    }
+}
+}
