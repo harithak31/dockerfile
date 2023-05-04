@@ -41,7 +41,7 @@ stages {
                 container('docker') {
                 sh "docker build -t cent:latest ."
                 sh "docker images"
-                sh "docker run -itd --name cna cent:latest"
+                sh "docker run -itd --name ctn cent:latest"
                 sh "docker ps"
             } 
         }    
