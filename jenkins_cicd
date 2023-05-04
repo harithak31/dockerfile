@@ -1,4 +1,4 @@
-setpipeline {
+pipeline {
   agent {
     kubernetes {
       yaml '''
